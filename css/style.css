@@ -1,0 +1,497 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin: 0 auto;
+	height: auto;
+	font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif;
+}
+
+html {
+	height: 100vh;
+}
+
+#g-nav {
+	display: none;
+}
+
+/* バナー本体 */
+.news-banner {
+	display: block;
+	height: 30px;
+	width: 100%;
+	background-color: pink;
+	overflow: hidden;
+  }
+  
+  /* バナー内コンテンツ */
+  .news-banner__content {
+	display: inline-block;
+	color: skyblue;
+	font-weight: bold;
+	line-height: 30px;
+	padding-left: 100%;
+	white-space: nowrap;
+	animation: animate-banner 20s linear infinite;
+  }
+  
+  /* バナー内の要素をすべて選択 */
+  .news-banner__content > * {
+	display: inline-block;
+  }
+  
+/* 横にスクロールさせるアニメーション */
+  @keyframes animate-banner {
+	0% {
+	  transform: translateX(0);
+	}
+	100% {
+	  transform: translateX(-100%);
+	}
+  }
+  
+header {
+	margin: 0;
+	width: 900px;
+
+}
+
+h1 {
+	font-size: 0;
+	padding-left: 30px;
+}
+
+nav {
+	margin: 0;
+	width: 900px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #eee;
+	height: 100px;
+
+}
+
+#logo {
+	margin-left: 20px;
+}
+
+ul {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	list-style: none;
+	background:#eee;
+	padding: 30px;
+}
+
+ul li a {
+	text-decoration: none;
+	padding: 5px;
+	font-weight: bold;
+}
+
+ul li a:hover {
+	opacity: .2;
+}
+
+ul li a:visited {
+	color: black;
+}
+
+ul li a:link {
+	color: black;
+}
+
+li {
+	margin: 0;
+}
+
+body {
+	margin: 0;
+	background-image:url(../images/新島.jpg);
+	background-size:cover;
+	height: 100vh;
+
+}
+
+
+#wrapper {
+	width: 900px;
+	height: 100vh;
+	}
+
+
+img {
+	vertical-align: bottom;
+	margin: auto 0;
+}
+
+
+
+h2 {
+	margin: 0;
+	padding: 32px 0;
+	text-align: center;
+}
+
+
+main {
+	background-image: url(../images/コンクリ.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 900px;
+	text-align: justify;
+	flex: 1;
+}
+
+
+
+.container {
+	display: flex;
+	align-items: center;
+  	height:213px;
+	gap:16px;
+	max-width: 750px;
+}
+
+.container2 {
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+  	height:213px;
+	gap:16px;
+	max-width: 750px;
+}
+
+.containersns {
+	max-width: 400px;
+	height:220px;
+	display: flex;
+	align-items: center;
+
+}
+
+footer {
+	background: black;
+	margin-top: auto;
+	width: 900px;
+	height:auto;
+}
+
+footer p {
+	margin: 0;
+	color: antiquewhite;
+	text-align: center;
+	font-size: 12px;
+	padding: 40px 0;
+}
+
+section {
+	font-size: 16px;
+}
+
+section img {
+	display: inline-block;
+}
+
+.weblink:hover {
+	opacity: .4;
+}
+
+.maindec {
+	max-width: 600px;
+	padding-top: 10px;
+}
+
+#meindecpic {
+	display: block;
+	margin: 0 auto;
+}
+
+.eachText {
+	padding:40px 0;
+}
+
+#slideshowsp {
+	display: none;
+}
+
+@media(max-width:1100px) {
+	main {
+		width: auto;
+		height: auto;
+	}
+	
+	footer {
+		width:auto;
+		height: auto;
+	}
+	
+	#wrapper {
+		width: auto;
+		height: auto;
+	}
+	
+	body {
+		background-image: none;
+		height: auto;
+	}
+	
+	nav {
+		width: 100%;
+	}
+	
+	header {
+		width: auto;
+	}
+	
+	section {
+		height: auto;
+		margin: 0 auto;
+	}
+	
+	.about {
+		height: auto;
+	}
+
+	
+}
+
+
+@media(max-width:700px) {
+	
+#g-nav {
+		display: inline-block;
+	}
+	
+	/*========= ナビゲーションのためのCSS ===============*/
+
+#g-nav{
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+	top:-120%;
+    left:0;
+	width:100%;
+    height: 100vh;/*ナビの高さ*/
+	background:rgba(0,157,255,0.9);
+    /*動き*/
+	transition: all 0.6s;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive{
+    top: 0;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999; 
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li{
+	list-style: none;
+    text-align: center; 
+}
+
+#g-nav li a{
+	color: #444444;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn{
+	position:fixed;
+    z-index: 9999;/*ボタンを最前面に*/
+	top:10px;
+	right: 10px;
+	cursor: pointer;
+    width: 50px;
+    height:50px;
+}
+	
+/*×に変化*/	
+.openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: #444444;
+  	width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+	top:15px;	
+}
+
+.openbtn span:nth-of-type(2) {
+	top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+	top:31px;
+}
+
+.openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+ul {
+	display: block;
+	background: none;
+}
+
+.visual {
+	width: auto;
+	height: auto;
+	background-size: cover;
+	text-align: center;
+}
+
+main .visual p {
+    margin: 0 auto;
+	
+}
+
+.container {
+	display: inline-block;
+	height: auto;
+	padding: 16px;
+}
+
+.container2 {
+	display: inline-block;
+	height: auto;
+	padding: 16px;
+}
+
+
+
+#pc li a {
+	display: none;
+}
+
+main {
+	width: auto;
+}
+
+footer {
+	width:auto;
+}
+
+#wrapper {
+	width: auto;
+}
+
+body {
+	background-image: none;
+}
+
+nav {
+	width: 100%;
+}
+
+header {
+	width: auto;
+}
+
+section {
+	height: auto;
+	margin: 0 auto;
+}
+
+.about {
+	height: auto;
+}
+
+main img {
+	display: block;
+	margin: 0 auto;
+	padding: 16px;
+}
+
+.maincontainer {
+	padding: 16px;
+}
+
+section img {
+	max-width: 260px;
+}
+
+#slideshow {
+	display: none;
+}
+
+#slideshowsp {
+	display: block;
+}
+
+
+}
+
+@media(max-width:280px) {
+
+section img {
+	max-width: 170px;
+	}
+
+	.container {
+		max-width: 200px;
+	}
+
+	.container2 {
+		max-width: 200px;
+	}
+
+	#slideshowsp {
+		display: block;
+		height: 200px;
+	}
+
+	#slideshow {
+		display: none;
+	}
+
+}
+
